@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ckj14oo0rkm5y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5uuo"]
+albedo_color = Color(0.6170621, 0.61077356, 0.70842123, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nnsk1"]
+material = SubResource("StandardMaterial3D_e5uuo")
+size = Vector2(25, 25)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_rwgxs"]
+
+[node name="World" type="Node3D" unique_id=876276815]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1276402419]
+mesh = SubResource("PlaneMesh_nnsk1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1114085179]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=42465070]
+shape = SubResource("WorldBoundaryShape3D_rwgxs")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2049170051]
+transform = Transform3D(0.84467375, -0.44120294, 0.30309436, 0, 0.56623363, 0.8242448, -0.5352814, -0.69621795, 0.4782827, 0, 14.275343, 0)
+shadow_enabled = true
