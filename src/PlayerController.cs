@@ -1,12 +1,10 @@
 using Godot;
 
+namespace Rooms;
+
 public partial class PlayerController : CharacterBody3D {
     [Export] private float _movementSpeed = 5.0f;
     [Export] private float _jumpVelocity = 4.5f;
-
-    public override void _Ready() {
-        Input.MouseMode = Input.MouseModeEnum.Captured;
-    }
 
     public override void _PhysicsProcess(double delta) {
         Vector3 velocity = Velocity;

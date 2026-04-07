@@ -1,11 +1,18 @@
+using System;
 using Godot;
+
+namespace Rooms;
 
 public partial class CameraController : Camera3D {
     public Vector2 viewRotation { get; private set; }
 
-    [Export] private PlayerController _attachedPlayer;
+    [Export] private PlayerController _attachedPlayer = null!;
     [Export] private Vector3 _offset;
     [Export] private float _sensitivity;
+
+    public override void _Ready() {
+        Input.MouseMode = Input.MouseModeEnum.Captured;
+    }
 
     public override void _Process(double delta) {
         Position = _attachedPlayer.Position + _offset;
