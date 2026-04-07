@@ -1,14 +1,15 @@
 [gd_scene format=3 uid="uid://benstxc0u2j5n"]
 
-[ext_resource type="Script" uid="uid://blbfbijj1agfy" path="res://Node3d.cs" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://dskxev0b0mxk1" path="res://scenes/player.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://ckj14oo0rkm5y" path="res://scenes/world.tscn" id="3_tbgi4"]
 
 [node name="Node3D" type="Node3D" unique_id=33793584]
-script = ExtResource("1_sugp2")
 
-[node name="Player" parent="." unique_id=2134740553 instance=ExtResource("2_jyhfs")]
+[node name="Player" parent="." unique_id=2134740553 node_paths=PackedStringArray("_camera") instance=ExtResource("2_jyhfs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+_movementSpeed = 23.295
+_camera = NodePath("Camera3D")
+_cameraSensitivity = 0.001
 
 [node name="Camera3D" type="Camera3D" parent="Player" unique_id=1663871944]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

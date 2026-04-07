@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://dskxev0b0mxk1"]
 
 [ext_resource type="Script" uid="uid://bdx66idvqi4iy" path="res://scripts/Player.cs" id="1_3vyb7"]
+[ext_resource type="Material" uid="uid://c8kw8klj4lm0r" path="res://materials/placeholder/dark.tres" id="2_g2els"]
+[ext_resource type="Material" uid="uid://brj2jayoo0l0d" path="res://addons/prototype_mini_bundle/M_prototype_blue.tres" id="2_qhqgy"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_u8vuu"]
+material = ExtResource("2_g2els")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vyb7"]
 
@@ -10,6 +13,7 @@
 script = ExtResource("1_3vyb7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1845491639]
+material_override = ExtResource("2_qhqgy")
 mesh = SubResource("CapsuleMesh_u8vuu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=157166793]

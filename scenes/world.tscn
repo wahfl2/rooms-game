@@ -1,13 +1,26 @@
 [gd_scene format=3 uid="uid://ckj14oo0rkm5y"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5uuo"]
-albedo_color = Color(0.6170621, 0.61077356, 0.70842123, 1)
+[ext_resource type="Texture2D" uid="uid://wieqjuscswvh" path="res://addons/prototype_mini_bundle/prototype_dark.png" id="1_i7141"]
+[ext_resource type="PackedScene" uid="uid://caqayjkbvlel5" path="res://addons/prototype_mini_bundle/prop_torus.tscn" id="2_4mrxx"]
+[ext_resource type="PackedScene" uid="uid://ciuwt2yj4hcu2" path="res://addons/prototype_mini_bundle/prop_prism.tscn" id="3_7r4gi"]
+[ext_resource type="PackedScene" uid="uid://c5hkhu8upxsf7" path="res://addons/prototype_mini_bundle/prop_cylinder.tscn" id="4_w7kh3"]
+[ext_resource type="PackedScene" uid="uid://0vmntyr615js" path="res://addons/prototype_mini_bundle/prop_cube.tscn" id="5_e3hyu"]
+[ext_resource type="PackedScene" uid="uid://dxvxy65pv5hoe" path="res://addons/prototype_mini_bundle/prop_sphere.tscn" id="6_q5onr"]
+[ext_resource type="Material" uid="uid://dyx4l6ea0am6f" path="res://addons/prototype_mini_bundle/M_prototype_green.tres" id="7_jhx03"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8fc1"]
+albedo_texture = ExtResource("1_i7141")
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nnsk1"]
-material = SubResource("StandardMaterial3D_e5uuo")
+material = SubResource("StandardMaterial3D_o8fc1")
 size = Vector2(25, 25)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_rwgxs"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_xo05s"]
+material = ExtResource("7_jhx03")
 
 [node name="World" type="Node3D" unique_id=876276815]
 
@@ -21,4 +34,21 @@ shape = SubResource("WorldBoundaryShape3D_rwgxs")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2049170051]
 transform = Transform3D(0.84467375, -0.44120294, 0.30309436, 0, 0.56623363, 0.8242448, -0.5352814, -0.69621795, 0.4782827, 0, 14.275343, 0)
+light_energy = 0.5
 shadow_enabled = true
+
+[node name="PropTorus" parent="." unique_id=846917919 instance=ExtResource("2_4mrxx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0168138, 0.25, -4.5114164)
+
+[node name="PropPrism" parent="." unique_id=253096509 instance=ExtResource("3_7r4gi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5891848, 0.5, -0.28334618)
+
+[node name="PropCylinder" parent="." unique_id=181313258 instance=ExtResource("4_w7kh3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22363538, 1, -4.495146)
+
+[node name="PropCube" parent="." unique_id=473049623 instance=ExtResource("5_e3hyu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1501694, 0.5, -0.39227962)
+
+[node name="PropSphere" parent="." unique_id=698077787 instance=ExtResource("6_q5onr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9186177, 0.5, 2.7843866)
+mesh = SubResource("SphereMesh_xo05s")
