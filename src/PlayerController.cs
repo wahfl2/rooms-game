@@ -1,32 +1,41 @@
+using System;
 using Godot;
 
 namespace Rooms;
 
 public partial class PlayerController : CharacterBody3D {
-    [Export] private float _movementSpeed = 5.0f;
-    [Export] private float _jumpVelocity = 4.5f;
+    [Export] private float _jumpVelocity = 7.5f;
+    [Export] private float _walkSpeed = 5.0f;
+    [Export] private float _sprintSpeed = 8.0f;
+    [Export] private float _friction = 4.0f;
 
     public override void _PhysicsProcess(double delta) {
         Vector3 velocity = Velocity;
 
         if (!IsOnFloor()) {
             velocity += GetGravity() * (float)delta;
+            // TODO: do we want terminal velocity?
         }
 
-        if (Input.IsActionJustPressed("ui_accept") && IsOnFloor()) {
-            velocity.Y = _jumpVelocity;
+        if (Input.IsActionPressed("gameplay_jump") && IsOnFloor()) {
+            // prevent jumping cancelling high upward velocity?
+            velocity.Y = Math.Max(velocity.Y, _jumpVelocity);
         }
 
-        Vector2 inputDir = Input.GetVector("move_left", "move_right", "move_forward", "move_backward");
-
+        Vector2 inputDir = Input.GetVector("gameplay_left", "gameplay_right", "gameplay_forward", "gameplay_backward");
         Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
+        float speed = Input.IsActionPressed("gameplay_sprint") ? _sprintSpeed : _walkSpeed;
+
         if (direction != Vector3.Zero) {
-            velocity.X = direction.X * _movementSpeed;
-            velocity.Z = direction.Z * _movementSpeed;
+            velocity.X = direction.X * speed;
+            velocity.Z = direction.Z * speed;
         }
         else {
-            velocity.X = Mathf.MoveToward(Velocity.X, 0, _movementSpeed);
-            velocity.Z = Mathf.MoveToward(Velocity.Z, 0, _movementSpeed);
+            float currentSpeed = velocity.Length();
+            if (currentSpeed != 0.0f) {
+                // TODO: separate friction value in air?
+                velocity -= velocity with { Y = 0.0f } / currentSpeed * Math.Min(_friction, currentSpeed);
+            }
         }
 
         Velocity = velocity;

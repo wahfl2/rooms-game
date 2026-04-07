@@ -43,11 +43,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0168138, 0.25, -4.5114164)
 [node name="PropPrism" parent="." unique_id=253096509 instance=ExtResource("3_7r4gi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5891848, 0.5, -0.28334618)
 
+[node name="PropPrism2" parent="." unique_id=318646692 instance=ExtResource("3_7r4gi")]
+transform = Transform3D(6, 0, 0, 0, 1, 0, 0, 0, 4, 8, 0.5, 3)
+
 [node name="PropCylinder" parent="." unique_id=181313258 instance=ExtResource("4_w7kh3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22363538, 1, -4.495146)
 
 [node name="PropCube" parent="." unique_id=473049623 instance=ExtResource("5_e3hyu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1501694, 0.5, -0.39227962)
+
+[node name="PropCube2" parent="." unique_id=657316277 instance=ExtResource("5_e3hyu")]
+transform = Transform3D(1, 0, 0, 0, 6, 0, 0, 0, 16, -11, 3, 1)
 
 [node name="PropSphere" parent="." unique_id=698077787 instance=ExtResource("6_q5onr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9186177, 0.5, 2.7843866)

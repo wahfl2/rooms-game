@@ -16,5 +16,7 @@ _sensitivity = 0.004
 
 [node name="Player" parent="." unique_id=2134740553 instance=ExtResource("2_jyhfs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+wall_min_slide_angle = 0.0
+_friction = 0.5
 
 [node name="World" parent="." unique_id=876276815 instance=ExtResource("3_tbgi4")]
