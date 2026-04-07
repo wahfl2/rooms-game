@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dskxev0b0mxk1"]
 
-[ext_resource type="Script" uid="uid://bdx66idvqi4iy" path="res://scripts/Player.cs" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://bdx66idvqi4iy" path="res://scripts/PlayerController.cs" id="1_3vyb7"]
 [ext_resource type="Material" uid="uid://c8kw8klj4lm0r" path="res://materials/placeholder/dark.tres" id="2_g2els"]
 [ext_resource type="Material" uid="uid://brj2jayoo0l0d" path="res://addons/prototype_mini_bundle/M_prototype_blue.tres" id="2_qhqgy"]
 
