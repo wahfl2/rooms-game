@@ -58,9 +58,16 @@ gameplay_sprint={
 [physics]
 
 3d/physics_engine="Jolt Physics"
+jolt_physics_3d/simulation/baumgarte_stabilization_factor=0.6
 3d/default_gravity=26.0
 common/physics_interpolation=true
 
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+lights_and_shadows/directional_shadow/size=8192
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=3
+lights_and_shadows/directional_shadow/16_bits=false
+textures/default_filters/anisotropic_filtering_level=3
+textures/default_filters/texture_mipmap_bias=-1.25
+anti_aliasing/quality/use_taa=true

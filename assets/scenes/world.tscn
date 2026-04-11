@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dxvxy65pv5hoe" path="res://addons/prototype_mini_bundle/prop_sphere.tscn" id="6_q5onr"]
 [ext_resource type="Material" uid="uid://dyx4l6ea0am6f" path="res://addons/prototype_mini_bundle/M_prototype_green.tres" id="7_jhx03"]
 [ext_resource type="Material" uid="uid://7to3kb1tisdd" path="res://addons/prototype_mini_bundle/M_prototype_orange.tres" id="8_mwrnc"]
+[ext_resource type="ArrayMesh" uid="uid://jmca1hghdyog" path="res://assets/models/barrel.tres" id="9_j6xc2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8fc1"]
 albedo_texture = ExtResource("1_i7141")
@@ -19,6 +20,7 @@ material = SubResource("StandardMaterial3D_o8fc1")
 size = Vector2(25, 25)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_rwgxs"]
+margin = 0.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_xo05s"]
 material = ExtResource("7_jhx03")
@@ -36,9 +38,14 @@ friction = 0.5
 bounce = 0.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j6xc2"]
+margin = 0.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_e345b"]
 material = ExtResource("8_mwrnc")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_j6xc2"]
+height = 1.9702148
+radius = 0.5878906
 
 [node name="World" type="Node3D" unique_id=876276815]
 
@@ -46,9 +53,11 @@ material = ExtResource("8_mwrnc")
 mesh = SubResource("PlaneMesh_nnsk1")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Floor" unique_id=1114085179]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.001, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" unique_id=42465070]
 shape = SubResource("WorldBoundaryShape3D_rwgxs")
+debug_fill = false
 
 [node name="Sun" type="DirectionalLight3D" parent="." unique_id=2049170051]
 transform = Transform3D(0.84467375, -0.44120294, 0.30309436, 0, 0.56623363, 0.8242448, -0.5352814, -0.69621795, 0.4782827, 0, 14.275343, 0)
@@ -103,3 +112,16 @@ shape = SubResource("BoxShape3D_j6xc2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Props/RigidBody3D2" unique_id=1374749619]
 mesh = SubResource("BoxMesh_e345b")
+
+[node name="RigidBody3D3" type="RigidBody3D" parent="Props" unique_id=1100423294]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.578269, 0.93507916, -7.111575)
+collision_layer = 32768
+collision_mask = 32769
+
+[node name="Barrel" type="MeshInstance3D" parent="Props/RigidBody3D3" unique_id=1419927293]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.02048254, 0)
+mesh = ExtResource("9_j6xc2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/RigidBody3D3" unique_id=547114766]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.014892578, 0)
+shape = SubResource("CylinderShape3D_j6xc2")
