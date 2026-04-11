@@ -18,6 +18,10 @@ config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 
 project/assembly_name="rooms-game"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_doctor/plugin.cfg")
+
 [input]
 
 gameplay_forward={

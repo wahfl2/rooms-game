@@ -8,5 +8,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="addons\.editorconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="./addons/**/*.cs">
+      <ExcludeFromCodeAnalysis>true</ExcludeFromCodeAnalysis>
+    </Compile>
   </ItemGroup>
 </Project>
