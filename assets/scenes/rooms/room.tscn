@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://crnjxnrgg8ehq"]
+
+[ext_resource type="Script" uid="uid://ci1yefj537pew" path="res://src/Room.cs" id="1_v8mm7"]
+[ext_resource type="PackedScene" uid="uid://0vmntyr615js" path="res://addons/prototype_mini_bundle/prop_cube.tscn" id="2_l58v3"]
+[ext_resource type="Material" uid="uid://dang10jws7tt6" path="res://addons/prototype_mini_bundle/M_prototype_dark_global.tres" id="3_1rdp6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v8mm7"]
+size = Vector3(5.703369, 4.114746, 7.797394)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ql80p"]
+size = Vector3(5.265991, 1, 7.4781494)
+
+[node name="RoomNode" type="Node3D" unique_id=13272225 node_paths=PackedStringArray("bounds", "entrance", "exit")]
+script = ExtResource("1_v8mm7")
+bounds = NodePath("Bounds")
+entrance = NodePath("Entrance")
+exit = NodePath("Exit")
+metadata/_custom_type_script = "uid://ci1yefj537pew"
+
+[node name="Bounds" type="Area3D" parent="." unique_id=1984723453]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bounds" unique_id=446790838]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012084961, 1.0036621, -0.0060577393)
+shape = SubResource("BoxShape3D_v8mm7")
+
+[node name="Entrance" type="Marker3D" parent="." unique_id=1853327498]
+transform = Transform3D(0.94821286, 0, -0.31763563, 0, 1, 0, 0.31763563, 0, 0.94821286, -2.7568507, 0, -0.5694921)
+
+[node name="Exit" type="Marker3D" parent="." unique_id=1836683727]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5959542, 0, 0.3349607)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=299643655]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1946668129]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.035612255, -0.5, 0.034118652)
+shape = SubResource("BoxShape3D_ql80p")
+
+[node name="PropCube" parent="." unique_id=577867977 instance=ExtResource("2_l58v3")]
+transform = Transform3D(5.6328893, 0, 0, 0, 1, 0, 0, 0, 7.7557244, 0, -0.5, 0)
+material_override = ExtResource("3_1rdp6")

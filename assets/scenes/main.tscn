@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cc15c66rseqip" path="res://src/CameraController.cs" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://dskxev0b0mxk1" path="res://assets/scenes/player.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://ckj14oo0rkm5y" path="res://assets/scenes/world.tscn" id="3_tbgi4"]
+[ext_resource type="Script" uid="uid://dq3dvcqndb0x4" path="res://src/RoomSpawner.cs" id="4_sfrgt"]
 
 [node name="Node3D" type="Node3D" unique_id=33793584]
 
@@ -20,3 +21,8 @@ wall_min_slide_angle = 0.0
 _friction = 0.5
 
 [node name="World" parent="." unique_id=876276815 instance=ExtResource("3_tbgi4")]
+
+[node name="RoomSpawner" type="Marker3D" parent="." unique_id=1872313537 node_paths=PackedStringArray("_worldNode")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.232399, 0, 0)
+script = ExtResource("4_sfrgt")
+_worldNode = NodePath("../World")
